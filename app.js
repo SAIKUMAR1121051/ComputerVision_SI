@@ -21,7 +21,7 @@ swaggerDefinition: {
       name:' sai Kumar Erpina'
     },
     basePath:"/api/v1",
-    servers:["http://159.65.32.185:3000"]
+    servers:["http://localhost:3000"]
   }
 },
 apis: ['./routes/analyze-image.js']
