@@ -1,0 +1,28 @@
+{
+  "name": "finalproject",
+  "version": "1.0.0",
+  "description": "use case of computer vision api",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SAIKUMAR1121051/ComputerVision_SI.git"
+  },
+  "keywords": [
+    "computer",
+    "visison"
+  ],
+  "author": "sai kumar erpina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SAIKUMAR1121051/ComputerVision_SI/issues"
+  },
+  "homepage": "https://github.com/SAIKUMAR1121051/ComputerVision_SI#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.3",
+    "request": "^2.88.2"
+  }
+}
