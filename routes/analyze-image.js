@@ -15,6 +15,21 @@ var uriBase = endpoint + 'vision/v2.1/analyze';
 
 //const imageUrl ='https://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg';
 
+
+/**
+* @swagger
+* /api/v1/analyzeImage:
+*   post:
+*     description: analyze an image from the image url
+*     parameters:
+ *       - name: imageUrl
+ *         in: formData
+ *         type: string
+ *         required: true     
+*     responses:
+*       '200':
+*         description: OK
+*/
 router.post('/', urlencodedParser, function (req, res) {
   if (req.body) {
     if (req.body.imageUrl) {

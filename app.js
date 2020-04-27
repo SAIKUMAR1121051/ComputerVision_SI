@@ -1,12 +1,35 @@
 var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
+const path =require('path');
 
 const analyzeImageApi = require("./routes/analyze-image.js");
 app.use('/assets',express.static('assets'));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+const swaggerJsDoc = require('swagger-jsdoc');
+const swaggerUi = require ('swagger-ui-express');
+
+const swaggerOptions ={
+swaggerDefinition: {
+  info: {
+    title: 'Image analyzer api',
+    description: 'implementation of swagger for image analyzer api',
+    contact: {
+      name:' sai Kumar Erpina'
+    },
+    basePath:"/api/v1",
+    servers:["http://159.65.32.185:3000"]
+  }
+},
+apis: ['./routes/analyze-image.js']
+}
+
+const swaggerDocs= swaggerJsDoc(swaggerOptions);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+app.use('/api/v1', express.static(path.join(__dirname, 'routes')));
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
@@ -21,7 +44,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/analyzeImage/api/v1/',analyzeImageApi);
+app.use('/api/v1/analyzeImage',analyzeImageApi);
 
 app.use((req, res, next) => {
     const error = new Error("Not found");
