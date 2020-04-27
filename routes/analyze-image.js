@@ -56,7 +56,7 @@ router.post('/', urlencodedParser, function (req, res) {
           return;
         }
         let jsonResponse = JSON.stringify(JSON.parse(body), null, '  ');
-        return res.status(200).json(jsonResponse);
+        return res.status(200).send(jsonResponse);
         //return res.send(jsonResponse);
       });
     }
